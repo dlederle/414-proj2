@@ -1,0 +1,37 @@
+vector<string> customers;
+Reader of some sort;
+main {
+  readInput();
+  printOut();
+}
+
+readInput() {
+  //Catch errors n all that
+  openFile();
+  index = 0;
+  while(file is open) {
+    vector<string> tmp = split(line, ',');
+    customers[counter]["last_name"] = tmp[0]
+    customers[counter]["first_name"] = tmp[1]
+    customers[counter]["enter_time"] = tmp[2]
+    customers[counter]["time_in"] = tmp[3]
+    customers[counter]["time_left"] = addTime(tmp[2], tmp[3])
+    index++;
+  }
+}
+
+printOut() {
+  for(x in customers) {
+    cout << customers[x]["time_left"] + " - " + customers[x]["last_name"] +
+            ", " + x[first_name] + " left";
+  }
+}
+
+string addTime(string timeIn, string minSpent) {
+  vector<string> tmp = split(timeIn, ":");
+  if(tmp[1] + minSpent > 60) {
+    tmp[0] += 1;
+    tmp[1] -= 60;
+  }
+  return tmp[0] + tmp[1];
+}
