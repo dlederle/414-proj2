@@ -38,6 +38,6 @@ public class Walmart {
   }
 
   private static void printOut() {
-
+    lane.print();
   }
 }
