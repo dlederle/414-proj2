@@ -16,7 +16,7 @@ public class Walmart {
   
   private static void makeLanes(int count, ArrayList<Lane> lanes) {
     for(int i = 0; i < count; i++) {
-      lanes.add(new Lane());
+      lanes.add(new Lane(i+1));
     }
   }
 
@@ -55,20 +55,12 @@ public class Walmart {
       makeLanes(count, lanes);
       Lane least = lanes.get(0);
       for(Customer c : customers) {
-        boolean added = false;
         for(Lane l : lanes) {
-          if(l.empty() && !added) {
-            l.add(c);
-            added = true;
-          } else {
-            if(least.timeLeft() >= 0 && l.timeLeft() < least.timeLeft()) {
-              least = l;
-            }
+          if(l.size() < least.size()) {
+            least = l;
           }
         }
-        if(!added) {
-          least.add(c);
-        }
+        least.add(c);
       }
       printOut(lanes);
   }

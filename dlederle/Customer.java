@@ -10,6 +10,7 @@ public class Customer {
   private int timeSpentInLine;
   private int timeBeingServed;
   private int totalTimeSpent;
+  private int line;
 
   public Customer(final String fName, final String lName, final String eTime, final String tSpent) {
     firstName = fName.trim();
@@ -26,6 +27,10 @@ public class Customer {
   
   public String enterTime() {
     return enterTime;
+  }
+  
+  public void setLine(int lineNum) {
+    line = lineNum;
   }
 
   public int getTimeInLine() {
@@ -49,6 +54,6 @@ public class Customer {
   }
 
   public String toString() {
-    return exitTime() + " - " + lastName + "," + firstName + ", waited " + timeSpentInLine + " minutes in line and " + totalTimeSpent + " minutes total.";
+    return exitTime() + " - " + lastName + "," + firstName + ", waited " + timeSpentInLine + " minutes in line number " + line + " and " + totalTimeSpent + " minutes total.";
   }
 }

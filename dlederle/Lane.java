@@ -5,14 +5,21 @@ import dlederle.Customer;
 public class Lane {
 
   private ArrayList<Customer> custLine;
+  int number;
 
-  public Lane() {
+  public Lane(int num) {
+    number = num;
     custLine = new ArrayList<Customer>();
   }
 
   public void add(Customer c) {
+    c.setLine(number);
     custLine.add(c);
     process(c);
+  }
+
+  public int size() {
+    return custLine.size();
   }
 
   public boolean empty() {
