@@ -41,8 +41,9 @@ public class Customer {
     String hour = tmp[0].trim();
     int minutes = Integer.parseInt(tmp[1].trim()) + totalTimeSpent;
     if(minutes > 60) {
-      hour = Integer.toString(Integer.parseInt(hour) + 1);
-      minutes -= 60;
+      int h = minutes / 60;
+      hour = Integer.toString(Integer.parseInt(hour) + h);
+      minutes -= (60 * h);
     }
     return hour + ":" + String.format("%02d", minutes);
   }

@@ -15,6 +15,19 @@ public class Lane {
     process(c);
   }
 
+  public boolean empty() {
+    return custLine.isEmpty();
+  }
+
+  public int timeLeft() {
+    if(!empty()) {
+      Customer last = custLine.get(custLine.size() - 1);
+      return last.getTimeInLine();
+    } else {
+      return 0;
+    }
+  }
+
   public void print() {
     double timeInLine = 0;
     double timeTotal = 0;
